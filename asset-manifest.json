@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/axels_first-task/static/css/main.6a33d743.chunk.css",
+    "main.js": "/axels_first-task/static/js/main.503b3a00.chunk.js",
+    "main.js.map": "/axels_first-task/static/js/main.503b3a00.chunk.js.map",
+    "runtime-main.js": "/axels_first-task/static/js/runtime-main.c5b7082e.js",
+    "runtime-main.js.map": "/axels_first-task/static/js/runtime-main.c5b7082e.js.map",
+    "static/js/2.65d4e1d4.chunk.js": "/axels_first-task/static/js/2.65d4e1d4.chunk.js",
+    "static/js/2.65d4e1d4.chunk.js.map": "/axels_first-task/static/js/2.65d4e1d4.chunk.js.map",
+    "static/js/3.79b8134f.chunk.js": "/axels_first-task/static/js/3.79b8134f.chunk.js",
+    "static/js/3.79b8134f.chunk.js.map": "/axels_first-task/static/js/3.79b8134f.chunk.js.map",
+    "index.html": "/axels_first-task/index.html",
+    "static/css/main.6a33d743.chunk.css.map": "/axels_first-task/static/css/main.6a33d743.chunk.css.map",
+    "static/js/2.65d4e1d4.chunk.js.LICENSE.txt": "/axels_first-task/static/js/2.65d4e1d4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c5b7082e.js",
+    "static/js/2.65d4e1d4.chunk.js",
+    "static/css/main.6a33d743.chunk.css",
+    "static/js/main.503b3a00.chunk.js"
+  ]
+}
