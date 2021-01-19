@@ -12,6 +12,9 @@ const ImageModalDiv = styled.div`
   align-items: center;
   justify-content: center;
   min-height: 18rem;
+  @media (max-width: 767px) {
+    margin: -1rem -1rem 1rem -1rem;
+  }
 `;
 
 export {

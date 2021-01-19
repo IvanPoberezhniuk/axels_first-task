@@ -7,7 +7,6 @@ const CloseIconStyles = styled.div`
   top: 1rem;
   width: 32px;
   height: 32px;
-  opacity: 0.3;
   z-index: 22;
 
   :hover {

@@ -17,6 +17,8 @@ const CommentForm = ({onAddComment}) => {
     }
 
     onAddComment({name, text});
+    setName('');
+    setText('');
   };
 
   return (
