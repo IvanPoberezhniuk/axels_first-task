@@ -2,7 +2,12 @@ import './App.scss';
 import Header from './components/particials/Header';
 import Footer from './components/particials/Footer';
 import styled from 'styled-components';
-import GalleryPage from './pages/GalleryPage';
+import {
+  BrowserRouter as Router,
+  Switch,
+} from 'react-router-dom';
+
+import {routes, RouteWithSubRoutes} from './routes/routes';
 
 
 const StyledDiv = styled.div`
@@ -13,13 +18,19 @@ const StyledDiv = styled.div`
 
 function App() {
   return (
-    <StyledDiv className="App">
-      <Header/>
-      <main>
-        <GalleryPage/>
-      </main>
-      <Footer/>
-    </StyledDiv>
+    <Router>
+      <StyledDiv className="App">
+        <Header/>
+        <main>
+          <Switch>
+            {routes.map((route, i) =>
+              (<RouteWithSubRoutes key={i} {...route}/>))
+            }
+          </Switch>
+        </main>
+        <Footer/>
+      </StyledDiv>
+    </Router>
   );
 }
 
