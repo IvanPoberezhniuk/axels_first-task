@@ -1,6 +1,6 @@
-import Header from './components/particials/Header';
-import Footer from './components/particials/Footer';
 import GalleryPage from './pages/GalleryPage';
+
+import {Footer, Header} from './components';
 
 import './App.scss';
 import {AppDiv} from './styled/App';
