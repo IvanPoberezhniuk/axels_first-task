@@ -2,9 +2,7 @@ import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, Modal, Row, Spinner} from 'react-bootstrap';
 
-import CommentForm from './CommentForm';
-import CommentsList from './CommentsList';
-import CloseIcon from './CloseIcon';
+import {CloseIcon, CommentsList, CommentForm} from './index';
 
 import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
 import CommentModel from '../models/comment';

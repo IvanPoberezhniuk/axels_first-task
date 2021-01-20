@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
 
-import ImageCard from '../components/ImageCard';
-import ImageModal from '../components/ImageModal';
+import {ImageCard, ImageModal} from '../components';
 
 import {getImages} from '../api/httpRequests';
 
