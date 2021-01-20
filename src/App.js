@@ -1,25 +1,19 @@
 import './App.scss';
 import Header from './components/particials/Header';
 import Footer from './components/particials/Footer';
-import styled from 'styled-components';
 import {
   BrowserRouter as Router,
   Switch,
 } from 'react-router-dom';
 
 import {routes, RouteWithSubRoutes} from './routes/routes';
+import {AppDiv} from './styled/App';
 
-
-const StyledDiv = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;
 
 function App() {
   return (
     <Router>
-      <StyledDiv className="App">
+      <AppDiv className="App">
         <Header/>
         <main>
           <Switch>
@@ -29,7 +23,7 @@ function App() {
           </Switch>
         </main>
         <Footer/>
-      </StyledDiv>
+      </AppDiv>
     </Router>
   );
 }
