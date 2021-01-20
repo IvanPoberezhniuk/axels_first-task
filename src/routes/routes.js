@@ -1,6 +1,7 @@
 import {Route} from 'react-router-dom';
 import GalleryPage from '../pages/GalleryPage';
 import ImageModal from '../components/ImageModal';
+import PageNotFound from '../pages/PageNotFound';
 
 const routes = [
   {
@@ -12,8 +13,8 @@ const routes = [
     }
   },
   {
-    path: '/404',
-    // component: PageNotFound,
+    path: '*',
+    component: PageNotFound,
   }
 ];
 
