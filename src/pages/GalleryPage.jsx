@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
 import {Col, Container, Row} from 'react-bootstrap';
 
 import ImageCard from '../components/ImageCard';
@@ -27,9 +26,7 @@ const GalleryPage = () => {
         <Row>
           {imgList.map((img) => (
             <Col xs={12} md={6} lg={4} xl={4} key={img.id}>
-              <Link to={`/gallery/${img.id}`}>
-                <ImageCard url={img.url} showModal={() => setModal(img.id)}/>
-              </Link>
+              <ImageCard url={img.url} showModal={() => setModal(img.id)}/>
             </Col>)
           )}
         </Row>

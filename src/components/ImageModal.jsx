@@ -59,7 +59,6 @@ const ImageModal = ({onHide, show, imgId}) => {
           <ImageModalCol xs={12} md={7}>
             <CommentForm imgId={imgId} onAddComment={onAddComment}/>
           </ImageModalCol>
-
         </Row>
       </Modal.Body>
     </Modal>
