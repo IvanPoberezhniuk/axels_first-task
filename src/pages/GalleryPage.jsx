@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import ImageCard from '../components/ImageCard';
-import {getImages} from '../api/httpRequests';
 import {Col, Container, Row} from 'react-bootstrap';
-import ImageModal from '../components/ImageModal';
+
+import {ImageCard, ImageModal} from '../components';
+
+import {getImages} from '../api/httpRequests';
 
 const GalleryPage = () => {
   const [imgList, setImgList] = useState([]);

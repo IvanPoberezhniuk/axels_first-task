@@ -12,9 +12,7 @@ const CommentForm = ({onAddComment}) => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (name.length <= 0 || text.length <= 0) {
-      return;
-    }
+    if (name.length <= 0 || text.length <= 0) return;
 
     onAddComment({name, text});
     setName('');

@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, Modal, Row, Spinner} from 'react-bootstrap';
-import {getImageById} from '../api/httpRequests';
-import ImageModel from '../models/image';
-import CommentForm from './CommentForm';
-import CommentsList from './CommentsList';
-import CommentModel from '../models/comment';
+
+import {CloseIcon, CommentsList, CommentForm} from './index';
+
 import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
-import CloseIcon from './CloseIcon';
+import CommentModel from '../models/comment';
+import ImageModel from '../models/image';
+import {getImageById} from '../api/httpRequests';
 
 const ImageModal = ({onHide, show, imgId}) => {
   const [imgData, setImgData] = useState(new ImageModel());
@@ -57,7 +57,6 @@ const ImageModal = ({onHide, show, imgId}) => {
           <ImageModalCol xs={12} md={7}>
             <CommentForm imgId={imgId} onAddComment={onAddComment}/>
           </ImageModalCol>
-
         </Row>
       </Modal.Body>
     </Modal>

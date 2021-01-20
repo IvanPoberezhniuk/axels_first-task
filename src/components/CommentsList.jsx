@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
 import {
   CommentListGroup,
   CommentListItem,
@@ -8,9 +9,7 @@ import {
 } from '../styled/components/CommentsList';
 
 const CommentsList = ({comments}) => {
-  const convertDate = (comment) => {
-    return new Date(comment.date).toLocaleDateString().split('/').join('.');
-  };
+  const convertDate = (comment) => new Date(comment.date).toLocaleDateString().split('/').join('.');
 
   return (
     <CommentListGroup>
