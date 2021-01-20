@@ -1,7 +1,9 @@
 import './App.scss';
+
+import styled from 'styled-components';
+
 import Header from './components/particials/Header';
 import Footer from './components/particials/Footer';
-import styled from 'styled-components';
 import GalleryPage from './pages/GalleryPage';
 
 

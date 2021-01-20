@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {ImageCardImg} from '../styled/components/ImageCard';
 
+import {ImageCardImg} from '../styled/components/ImageCard';
 
 const ImageCard = ({url, showModal}) => {
   return (<ImageCardImg src={url} onClick={showModal} alt='photo' rounded/>);
@@ -12,5 +12,5 @@ ImageCard.propTypes = {
   showModal: PropTypes.func.isRequired,
 };
 
-
 export default ImageCard;
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import {StyledFooter} from '../../styled/components/particials/StyledFooter';
 
+import {StyledFooter} from '../../styled/components/particials/StyledFooter';
 
 const Footer = () => {
   return (

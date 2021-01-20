@@ -1,13 +1,15 @@
 import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import {Image, Modal, Row, Spinner} from 'react-bootstrap';
-import {getImageById} from '../api/httpRequests';
-import ImageModel from '../models/image';
+
 import CommentForm from './CommentForm';
 import CommentsList from './CommentsList';
-import CommentModel from '../models/comment';
-import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
 import CloseIcon from './CloseIcon';
+
+import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
+import CommentModel from '../models/comment';
+import ImageModel from '../models/image';
+import {getImageById} from '../api/httpRequests';
 
 const ImageModal = ({onHide, show, imgId}) => {
   const [imgData, setImgData] = useState(new ImageModel());
