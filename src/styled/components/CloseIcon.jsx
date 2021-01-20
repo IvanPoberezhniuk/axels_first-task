@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 const CloseIconStyles = styled.div`
   position: absolute;
   right: 1rem;
@@ -31,7 +30,6 @@ const CloseIconStyles = styled.div`
     transform: rotate(-45deg);
   }
 `;
-
 
 export {
   CloseIconStyles
