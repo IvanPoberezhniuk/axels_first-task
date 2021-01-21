@@ -12,4 +12,3 @@ ImageCard.propTypes = {
 };
 
 export default ImageCard;
-
