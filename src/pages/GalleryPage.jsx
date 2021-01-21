@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
+import {useSelector} from 'react-redux';
 
 import {ImageCard, ImageModal} from '../components';
 
@@ -11,7 +12,6 @@ const GalleryPage = () => {
   const [modalShow, setModalShow] = useState(false);
   const [imgId, setImgId] = useState(null);
   const location = useLocation();
-
 
   useEffect(() => {
     getImages().then(data => setImgList(data));

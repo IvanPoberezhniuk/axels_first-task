@@ -1,9 +1,10 @@
 {
-  "homepage": "http://IvanPoberezhniuk.github.io/axels_first-task",
+  "homepage": "http://IvanPoberezhniuk.github.io/gallery",
   "name": "axels_first-task",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.5.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
@@ -48,6 +49,8 @@
   "devDependencies": {
     "@types/react-dom": "^17.0.0",
     "gh-pages": "^3.1.0",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "react-redux": "^7.2.2",
+    "redux-logger": "^3.0.6"
   }
 }
