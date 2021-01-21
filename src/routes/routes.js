@@ -1,16 +1,13 @@
 import {Route} from 'react-router-dom';
+
 import GalleryPage from '../pages/GalleryPage';
-import ImageModal from '../components/ImageModal';
 import PageNotFound from '../pages/PageNotFound';
 
 const routes = [
   {
     path: '/gallery',
     component: GalleryPage,
-    routes: {
-      path: '/gallery/:id',
-      component: ImageModal,
-    }
+    exact: true
   },
   {
     path: '*',
@@ -18,18 +15,19 @@ const routes = [
   }
 ];
 
-function RouteWithSubRoutes(route) {
+const RouteWithSubRoutes = (route) => {
   return (
     <Route
       path={route.path}
       render={props => (
-        <route.component {...props} routes={route.routes}/>
+        <route.component {...props}/>
       )}
     />
   );
-}
+};
 
 export {
-  routes, RouteWithSubRoutes
+  routes,
+  RouteWithSubRoutes
 };
 
