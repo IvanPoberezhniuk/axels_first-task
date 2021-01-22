@@ -2,7 +2,6 @@ import {createSlice} from '@reduxjs/toolkit';
 import {call, put, takeEvery} from '@redux-saga/core/effects';
 import {getImageById, getImages} from '../../api/httpRequests';
 import ImageModel from '../../models/image.model';
-import {func} from 'prop-types';
 
 const initialState = {
   loading: false,
@@ -56,11 +55,11 @@ export function* watcherFetchImages() {
 }
 
 export function* watcherFetchImageDetails() {
-  const action = yield takeEvery(fetchImageDetails, workerImageDetails);
+  yield takeEvery(fetchImageDetails, (action) => workerImageDetails(action));
 }
 
 export function* watcherAddComment() {
-  const action = yield takeEvery(addComment, workerPutComment);
+  yield takeEvery(addComment, (action) => workerPutComment(action));
 }
 
 // workers

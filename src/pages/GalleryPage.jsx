@@ -17,7 +17,7 @@ const GalleryPage = () => {
 
   useEffect(() => {
     dispatch(fetchImages());
-  }, []);
+  }, [dispatch]);
 
   const setModal = (id) => {
     setModalShow(true);

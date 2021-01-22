@@ -5,7 +5,6 @@ import {useParams, useHistory} from 'react-router-dom';
 import {CloseIcon, CommentsList, CommentForm} from './index';
 
 import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
-import CommentModel from '../models/comment.model';
 import {useDispatch, useSelector} from 'react-redux';
 import {addComment, fetchImageDetails} from '../store/modules/images';
 
