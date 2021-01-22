@@ -6,7 +6,7 @@ import {CloseIcon, CommentsList, CommentForm} from './index';
 
 import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
 import {useDispatch, useSelector} from 'react-redux';
-import {addComment, fetchImageDetails} from '../store/modules/images';
+import {fetchImageDetails} from '../store/modules/images';
 
 const ImageModal = () => {
   const [show, setShow] = useState(true);
@@ -22,10 +22,6 @@ const ImageModal = () => {
 
   const getImgInfo = () => {
     dispatch(fetchImageDetails(id));
-  };
-
-  const onAddComment = (comment) => {
-    dispatch(addComment({...comment, date: Date.now()}));
   };
 
   const onHide = () => {
@@ -59,7 +55,7 @@ const ImageModal = () => {
             <CommentsList comments={comments}/>
           </ImageModalCol>
           <ImageModalCol xs={12} md={7}>
-            <CommentForm onAddComment={onAddComment}/>
+            <CommentForm/>
           </ImageModalCol>
         </Row>
       </Modal.Body>
