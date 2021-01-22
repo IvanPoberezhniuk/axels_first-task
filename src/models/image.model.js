@@ -1,4 +1,4 @@
-import CommentModel from './comment';
+import CommentModel from './comment.model';
 
 export default class ImageModel {
   constructor(image = {}) {

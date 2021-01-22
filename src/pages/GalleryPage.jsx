@@ -1,20 +1,22 @@
 import React, {useEffect, useState} from 'react';
 import {Col, Container, Row} from 'react-bootstrap';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 import {ImageCard, ImageModal} from '../components';
 
-import {getImages} from '../api/httpRequests';
 import {Link, useLocation} from 'react-router-dom';
+import {fetchImages} from '../store/modules/images';
 
 const GalleryPage = () => {
-  const [imgList, setImgList] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [imgId, setImgId] = useState(null);
   const location = useLocation();
+  //redux
+  const dispatch = useDispatch();
+  const imagesList = useSelector(store => store.imagesStore.images);
 
   useEffect(() => {
-    getImages().then(data => setImgList(data));
+    dispatch(fetchImages());
   }, []);
 
   const setModal = (id) => {
@@ -26,7 +28,7 @@ const GalleryPage = () => {
     <div>
       <Container>
         <Row>
-          {imgList.map((img) => (
+          {imagesList.map((img) => (
             <Col xs={12} md={6} lg={4} xl={4} key={img.id}>
               <Link to={{pathname: `/gallery/${img.id}`, state: {background: location}}}>
                 <ImageCard url={img.url} showModal={() => setModal(img.id)}/>

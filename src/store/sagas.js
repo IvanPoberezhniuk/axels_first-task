@@ -1,11 +1,10 @@
 import {all} from '@redux-saga/core/effects';
-
-export function* helloSaga() {
-  yield console.log('Hello Sagas!');
-}
+import {watcherFetchImages, watcherFetchImageDetails, watcherAddComment,} from './modules/images';
 
 export default function* rootSaga() {
   yield all([
-    helloSaga(),
+    watcherFetchImages(),
+    watcherFetchImageDetails(),
+    watcherAddComment()
   ]);
 }

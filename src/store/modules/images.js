@@ -1,37 +1,103 @@
 import {createSlice} from '@reduxjs/toolkit';
-
-const GET_IMAGES_LIST = 'images/get';
-const GET_IMG = 'image/get';
+import {call, put, takeEvery} from '@redux-saga/core/effects';
+import {getImageById, getImages} from '../../api/httpRequests';
+import ImageModel from '../../models/image.model';
+import {func} from 'prop-types';
 
 const initialState = {
-  loaded: false,
+  loading: false,
   images: [],
-  error: false
+  error: false,
+  imageDetails: new ImageModel()
 };
 
 export const imagesSlice = createSlice({
   name: 'images',
   initialState,
   reducers: {
-    getImages(state, action) {
-      state.push(...action.payload);
-    }
-  }
+    fetchImages(state, action) {
+    },
+    fetchImageDetails: {
+      reducer(state, action) {
+      },
+      prepare: (id) => ({
+        payload: {id}
+      })
+    },
+    addComment: {
+      reducer(state, action) {
+      },
+      prepare: (commentInfo) => ({
+        payload: commentInfo
+      })
+    },
+    putImages(state, action) {
+      state.images = action.payload;
+    },
+    putImageDetails(state, action) {
+      state.imageDetails = new ImageModel(action.payload);
+    },
+    putComment(state, action) {
+      // state.imageDetails.comments.push(action.payload);
+      return {
+        ...state,
+        imageDetails: {...state.imageDetails, comments: [...state.imageDetails.comments, action.payload]}
+      };
+    },
+    setLoaded(state, action) {
+      state.loaded = action.payload;
+    },
+  },
 });
 
-export const {getImages} = imagesSlice.actions;
-export default imagesSlice.reducer;
+// watchers
+export function* watcherFetchImages() {
+  yield takeEvery(fetchImages, workerFetchImages);
+}
 
-// export const getImagesList = (id) => {
-//   return {
-//     type: GET_IMAGES_LIST,
-//     payload: id
-//   };
-// };
-//
-// export const getImg = (id) => {
-//   return {
-//     type: GET_IMG,
-//     payload: id
-//   };
-// };
+export function* watcherFetchImageDetails() {
+  const action = yield takeEvery(fetchImageDetails, workerImageDetails);
+}
+
+export function* watcherAddComment() {
+  const action = yield takeEvery(addComment, workerPutComment);
+}
+
+// workers
+function* workerFetchImages() {
+  try {
+    const images = yield call(getImages);
+    yield put(putImages(images));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* workerImageDetails(action) {
+  try {
+    const image = yield call(() => getImageById(action.payload.id));
+    yield put(putImageDetails(image));
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+function* workerPutComment(action) {
+  try {
+    yield put(putComment(action.payload));
+  } catch (e) {
+    console.log(e);
+  } finally {
+  }
+}
+
+export const {
+  fetchImages,
+  fetchImageDetails,
+  addComment,
+  putImages,
+  putImageDetails,
+  putComment,
+  setLoaded
+} = imagesSlice.actions;
+export default imagesSlice.reducer;

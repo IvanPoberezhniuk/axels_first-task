@@ -5,38 +5,33 @@ import {useParams, useHistory} from 'react-router-dom';
 import {CloseIcon, CommentsList, CommentForm} from './index';
 
 import {ImageModalCol, ImageModalDiv} from '../styled/components/ImageModal';
-import CommentModel from '../models/comment';
-import ImageModel from '../models/image';
-import {getImageById} from '../api/httpRequests';
+import CommentModel from '../models/comment.model';
+import {useDispatch, useSelector} from 'react-redux';
+import {addComment, fetchImageDetails} from '../store/modules/images';
 
 const ImageModal = () => {
-  const [imgData, setImgData] = useState(new ImageModel());
-  const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(true);
   const {id} = useParams();
   const history = useHistory();
+  // redux
+  const dispatch = useDispatch();
+  const image = useSelector(store => store.imagesStore.imageDetails);
+  const comments = useSelector(store => store.imagesStore.imageDetails.comments);
+  const loading = useSelector(store => store.imagesStore.loading);
 
   if (!id) return null;
 
-  const getImgInfo = async () => {
-    try {
-      setIsLoading(true);
-      await getImageById(id).then(data => {
-        setImgData(new ImageModel(data));
-      });
-    } finally {
-      setIsLoading(false);
-    }
+  const getImgInfo = () => {
+    dispatch(fetchImageDetails(id));
   };
 
   const onAddComment = (comment) => {
-    const newCommentWithDate = new CommentModel({...comment, date: Date.now()});
-    setImgData({...imgData, comments: [...imgData.comments, newCommentWithDate]});
+    dispatch(addComment({...comment, date: Date.now()}));
   };
 
-  const onHide = (event) => {
+  const onHide = () => {
     setShow(false);
-    setTimeout(history.push('/gallery'), 300);
+    setTimeout(() => history.push('/gallery'), 300);
   };
 
   return (
@@ -53,16 +48,16 @@ const ImageModal = () => {
         <Row>
           <ImageModalCol xs={12} md={7}>
             <ImageModalDiv>
-              {isLoading ?
+              {loading ?
                 <Spinner animation="border" role="status">
                   <span className="sr-only">Loading...</span>
                 </Spinner> :
-                <Image src={imgData.url} fluid/>
+                <Image src={image.url} fluid/>
               }
             </ImageModalDiv>
           </ImageModalCol>
           <ImageModalCol xs={12} md={5}>
-            <CommentsList comments={imgData.comments}/>
+            <CommentsList comments={comments}/>
           </ImageModalCol>
           <ImageModalCol xs={12} md={7}>
             <CommentForm onAddComment={onAddComment}/>
