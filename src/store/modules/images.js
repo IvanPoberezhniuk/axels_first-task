@@ -43,7 +43,7 @@ export const imagesSlice = createSlice({
         imageDetails: {...state.imageDetails, comments: [...state.imageDetails.comments, action.payload]}
       };
     },
-    setLoaded(state, action) {
+    setLoading(state, action) {
       state.loaded = action.payload;
     },
   },
@@ -74,10 +74,14 @@ function* workerFetchImages() {
 
 function* workerImageDetails(action) {
   try {
+    yield put(setLoading(true));
     const image = yield call(() => getImageById(action.payload.id));
     yield put(putImageDetails(image));
   } catch (e) {
     console.log(e);
+  } finally {
+    yield put(setLoading(false));
+
   }
 }
 
@@ -86,7 +90,6 @@ function* workerPutComment(action) {
     yield put(putComment(action.payload));
   } catch (e) {
     console.log(e);
-  } finally {
   }
 }
 
@@ -97,6 +100,6 @@ export const {
   putImages,
   putImageDetails,
   putComment,
-  setLoaded
+  setLoading
 } = imagesSlice.actions;
 export default imagesSlice.reducer;

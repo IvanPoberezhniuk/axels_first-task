@@ -6,7 +6,6 @@ import * as Yup from 'yup';
 
 import {addComment} from '../store/modules/images';
 
-
 const CommentForm = () => {
   const dispatch = useDispatch();
   const {getFieldProps, handleSubmit, touched, errors} = useFormik({
