@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/gallery/static/css/main.082f4014.chunk.css",
-    "main.js": "/gallery/static/js/main.19f80902.chunk.js",
-    "main.js.map": "/gallery/static/js/main.19f80902.chunk.js.map",
-    "runtime-main.js": "/gallery/static/js/runtime-main.89c4ffee.js",
-    "runtime-main.js.map": "/gallery/static/js/runtime-main.89c4ffee.js.map",
-    "static/js/2.c321ee87.chunk.js": "/gallery/static/js/2.c321ee87.chunk.js",
-    "static/js/2.c321ee87.chunk.js.map": "/gallery/static/js/2.c321ee87.chunk.js.map",
-    "index.html": "/gallery/index.html",
-    "static/css/main.082f4014.chunk.css.map": "/gallery/static/css/main.082f4014.chunk.css.map",
-    "static/js/2.c321ee87.chunk.js.LICENSE.txt": "/gallery/static/js/2.c321ee87.chunk.js.LICENSE.txt"
+    "main.css": "/axels_first-task/static/css/main.082f4014.chunk.css",
+    "main.js": "/axels_first-task/static/js/main.19f80902.chunk.js",
+    "main.js.map": "/axels_first-task/static/js/main.19f80902.chunk.js.map",
+    "runtime-main.js": "/axels_first-task/static/js/runtime-main.191620a6.js",
+    "runtime-main.js.map": "/axels_first-task/static/js/runtime-main.191620a6.js.map",
+    "static/js/2.4731c366.chunk.js": "/axels_first-task/static/js/2.4731c366.chunk.js",
+    "static/js/2.4731c366.chunk.js.map": "/axels_first-task/static/js/2.4731c366.chunk.js.map",
+    "index.html": "/axels_first-task/index.html",
+    "static/css/main.082f4014.chunk.css.map": "/axels_first-task/static/css/main.082f4014.chunk.css.map",
+    "static/js/2.4731c366.chunk.js.LICENSE.txt": "/axels_first-task/static/js/2.4731c366.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.89c4ffee.js",
-    "static/js/2.c321ee87.chunk.js",
+    "static/js/runtime-main.191620a6.js",
+    "static/js/2.4731c366.chunk.js",
     "static/css/main.082f4014.chunk.css",
     "static/js/main.19f80902.chunk.js"
   ]
