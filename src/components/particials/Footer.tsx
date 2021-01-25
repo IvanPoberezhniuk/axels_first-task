@@ -8,6 +8,4 @@ const Footer = () => (
   </StyledFooter>
 );
 
-Footer.propTypes = {};
-
 export default Footer;

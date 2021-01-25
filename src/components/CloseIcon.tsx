@@ -1,14 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { CloseIconStyles } from '../styled/components/CloseIcon';
 
-const CloseIcon = ({ onIconClick }) => (
+interface Props {
+  onIconClick: () => void
+}
+
+const CloseIcon: React.FC<Props> = ({ onIconClick }) => (
   <CloseIconStyles onClick={onIconClick} />
 );
-
-CloseIcon.propTypes = {
-  onIconClick: PropTypes.func,
-};
 
 export default CloseIcon;

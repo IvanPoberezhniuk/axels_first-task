@@ -7,7 +7,7 @@ const routes = [
   {
     path: '/',
     exact: true,
-    component: (props) => <Redirect to={'/gallery'} />,
+    component: () => <Redirect to='/gallery' />
   },
   {
     path: '/gallery',

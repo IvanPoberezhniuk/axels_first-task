@@ -31,9 +31,9 @@ const ImageModal = () => {
   return (
     <Modal
       show={show}
-      onHide={(event) => onHide(event)}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
+      onHide={() => onHide()}
+      size='lg'
+      aria-labelledby='contained-modal-title-vcenter'
       onShow={getImgInfo}
       centered
     >
@@ -43,8 +43,8 @@ const ImageModal = () => {
           <ImageModalCol xs={12} md={7}>
             <ImageModalDiv>
               {loading ? (
-                <Spinner animation="border" role="status">
-                  <span className="sr-only">Loading...</span>
+                <Spinner animation='border' role='status'>
+                  <span className='sr-only'>Loading...</span>
                 </Spinner>
               ) : (
                 <Image src={image.url} fluid />

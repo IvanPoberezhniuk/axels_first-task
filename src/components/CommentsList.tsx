@@ -1,11 +1,10 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import {
   CommentListGroup,
   CommentListItem,
   CommentListParagraph,
-  CommentListTime,
+  CommentListTime
 } from '../styled/components/CommentsList';
 
 const CommentsList = ({ comments }) => {
@@ -31,9 +30,9 @@ CommentsList.propTypes = {
     PropTypes.shape({
       date: PropTypes.number,
       id: PropTypes.number,
-      text: PropTypes.string,
+      text: PropTypes.string
     })
-  ).isRequired,
+  ).isRequired
 };
 
 export default CommentsList;

@@ -8,6 +8,7 @@ import './App.scss';
 
 const App = () => {
   const location = useLocation();
+  // @ts-ignore
   const backgroundPage = location.state && location.state.background;
 
   return (
@@ -20,7 +21,7 @@ const App = () => {
           ))}
         </Switch>
         {backgroundPage && (
-          <Route path="/gallery/:id" children={<ImageModal />} />
+          <Route path='/gallery/:id' children={<ImageModal />} />
         )}
       </main>
       <Footer />

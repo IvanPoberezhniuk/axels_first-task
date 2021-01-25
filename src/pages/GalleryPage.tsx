@@ -23,7 +23,7 @@ const GalleryPage = () => {
               <Link
                 to={{
                   pathname: `/gallery/${img.id}`,
-                  state: { background: location },
+                  state: { background: location }
                 }}
               >
                 <ImageCard url={img.url} />
