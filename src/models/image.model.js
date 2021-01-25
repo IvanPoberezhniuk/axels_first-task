@@ -7,4 +7,3 @@ export default class ImageModel {
     this.comments = image.comments || [new CommentModel({})];
   }
 }
-

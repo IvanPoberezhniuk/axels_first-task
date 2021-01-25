@@ -5,4 +5,4 @@ const StyledHeader = styled.header`
   text-align: center;
 `;
 
-export {StyledHeader};
+export { StyledHeader };

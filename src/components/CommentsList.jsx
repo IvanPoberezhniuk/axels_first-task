@@ -5,31 +5,35 @@ import {
   CommentListGroup,
   CommentListItem,
   CommentListParagraph,
-  CommentListTime
+  CommentListTime,
 } from '../styled/components/CommentsList';
 
-const CommentsList = ({comments}) => {
-  const convertDate = (comment) => new Date(comment.date).toLocaleDateString().split('/').join('.');
+const CommentsList = ({ comments }) => {
+  const convertDate = (comment) =>
+    new Date(comment.date).toLocaleDateString().split('/').join('.');
 
   return (
     <CommentListGroup>
-      {comments.map(comment => (
+      {comments.map((comment) => (
         <CommentListItem key={comment.id}>
           <CommentListParagraph>
             <CommentListTime> {convertDate(comment)} </CommentListTime>
           </CommentListParagraph>
           <CommentListParagraph>{comment.text}</CommentListParagraph>
-        </CommentListItem>))}
+        </CommentListItem>
+      ))}
     </CommentListGroup>
   );
 };
 
 CommentsList.propTypes = {
-  comments: PropTypes.arrayOf(PropTypes.shape({
-    date: PropTypes.number,
-    id: PropTypes.number,
-    text: PropTypes.string
-  })).isRequired
+  comments: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.number,
+      id: PropTypes.number,
+      text: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default CommentsList;

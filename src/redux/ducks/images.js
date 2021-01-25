@@ -1,34 +1,30 @@
-import {createSlice} from '@reduxjs/toolkit';
-import {call, put, takeEvery} from '@redux-saga/core/effects';
-import {getImageById, getImages} from '../../api/httpRequests';
+import { createAction, createSlice } from '@reduxjs/toolkit';
+import { call, put, takeEvery } from '@redux-saga/core/effects';
+import { getImageById, getImages } from '../../api/httpRequests';
 import ImageModel from '../../models/image.model';
 
 const initialState = {
   loading: false,
   images: [],
   error: false,
-  imageDetails: new ImageModel()
+  imageDetails: new ImageModel(),
 };
 
 export const imagesSlice = createSlice({
   name: 'images',
   initialState,
   reducers: {
-    fetchImages(state, action) {
-    },
     fetchImageDetails: {
-      reducer(state, action) {
-      },
+      reducer(state, action) {},
       prepare: (id) => ({
-        payload: {id}
-      })
+        payload: { id },
+      }),
     },
     addComment: {
-      reducer(state, action) {
-      },
+      reducer(state, action) {},
       prepare: (commentInfo) => ({
-        payload: commentInfo
-      })
+        payload: commentInfo,
+      }),
     },
     putImages(state, action) {
       state.images = action.payload;
@@ -37,10 +33,12 @@ export const imagesSlice = createSlice({
       state.imageDetails = new ImageModel(action.payload);
     },
     putComment(state, action) {
-      // state.imageDetails.comments.push(action.payload);
       return {
         ...state,
-        imageDetails: {...state.imageDetails, comments: [...state.imageDetails.comments, action.payload]}
+        imageDetails: {
+          ...state.imageDetails,
+          comments: [...state.imageDetails.comments, action.payload],
+        },
       };
     },
     setLoading(state, action) {
@@ -48,6 +46,8 @@ export const imagesSlice = createSlice({
     },
   },
 });
+
+export const fetchImages = createAction('images/fetch');
 
 // watchers
 export function* watcherFetchImages() {
@@ -67,8 +67,8 @@ function* workerFetchImages() {
   try {
     const images = yield call(getImages);
     yield put(putImages(images));
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 }
 
@@ -77,29 +77,27 @@ function* workerImageDetails(action) {
     yield put(setLoading(true));
     const image = yield call(() => getImageById(action.payload.id));
     yield put(putImageDetails(image));
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   } finally {
     yield put(setLoading(false));
-
   }
 }
 
 function* workerPutComment(action) {
   try {
     yield put(putComment(action.payload));
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    console.log(error);
   }
 }
 
 export const {
-  fetchImages,
   fetchImageDetails,
   addComment,
   putImages,
   putImageDetails,
   putComment,
-  setLoading
+  setLoading,
 } = imagesSlice.actions;
 export default imagesSlice.reducer;

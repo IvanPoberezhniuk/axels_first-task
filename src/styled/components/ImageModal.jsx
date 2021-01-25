@@ -1,4 +1,4 @@
-import {Col} from 'react-bootstrap';
+import { Col } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const ImageModalCol = styled(Col)`
@@ -17,7 +17,4 @@ const ImageModalDiv = styled.div`
   }
 `;
 
-export {
-  ImageModalCol,
-  ImageModalDiv
-};
+export { ImageModalCol, ImageModalDiv };

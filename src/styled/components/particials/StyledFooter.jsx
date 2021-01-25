@@ -10,6 +10,4 @@ const StyledFooter = styled.footer`
   font-size: 1.3rem;
 `;
 
-export {
-  StyledFooter
-};
+export { StyledFooter };

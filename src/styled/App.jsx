@@ -6,4 +6,4 @@ const AppDiv = styled.div`
   min-height: 100vh;
 `;
 
-export {AppDiv};
+export { AppDiv };

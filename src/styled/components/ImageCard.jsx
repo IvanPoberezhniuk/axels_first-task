@@ -1,4 +1,4 @@
-import {Image} from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import styled from 'styled-components';
 
 const ImageCardImg = styled(Image)`
@@ -7,4 +7,4 @@ const ImageCardImg = styled(Image)`
   background-color: red;
 `;
 
-export {ImageCardImg};
+export { ImageCardImg };

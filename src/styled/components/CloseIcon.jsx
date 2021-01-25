@@ -13,7 +13,8 @@ const CloseIconStyles = styled.div`
     cursor: pointer;
   }
 
-  :before, :after {
+  :before,
+  :after {
     position: absolute;
     left: 15px;
     content: ' ';
@@ -31,6 +32,4 @@ const CloseIconStyles = styled.div`
   }
 `;
 
-export {
-  CloseIconStyles
-};
+export { CloseIconStyles };

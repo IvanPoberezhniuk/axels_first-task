@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {ListGroup} from 'react-bootstrap';
+import { ListGroup } from 'react-bootstrap';
 
 const CommentListParagraph = styled.p`
   margin: 0;
@@ -23,4 +23,9 @@ const CommentListGroup = styled(ListGroup)`
   }
 `;
 
-export {CommentListParagraph, CommentListItem, CommentListGroup, CommentListTime};
+export {
+  CommentListParagraph,
+  CommentListItem,
+  CommentListGroup,
+  CommentListTime,
+};
