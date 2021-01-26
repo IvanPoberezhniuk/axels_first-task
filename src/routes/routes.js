@@ -12,12 +12,12 @@ const routes = [
   {
     path: '/gallery',
     component: GalleryPage,
-    exact: true,
+    exact: true
   },
   {
     path: '*',
-    component: PageNotFound,
-  },
+    component: PageNotFound
+  }
 ];
 
 const RouteWithSubRoutes = (route) => (

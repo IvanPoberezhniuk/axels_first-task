@@ -1,23 +1,27 @@
 import React, { useState } from 'react';
 import { Image, Modal, Row, Spinner } from 'react-bootstrap';
 import { useParams, useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
 import { CloseIcon, CommentsList, CommentForm } from './index';
 
 import { ImageModalCol, ImageModalDiv } from '../styled/components/ImageModal';
 import { fetchImageDetails } from '../redux/ducks/images';
 
+interface RouteParams {
+  id: string
+}
+
 const ImageModal = () => {
   const [show, setShow] = useState(true);
-  const { id } = useParams();
+  const { id } = useParams<RouteParams>();
   const history = useHistory();
   const dispatch = useDispatch();
-  const image = useSelector((store) => store.imagesStore.imageDetails);
+  const image = useSelector((store: RootStateOrAny) => store.imagesStore.imageDetails);
   const comments = useSelector(
-    (store) => store.imagesStore.imageDetails.comments
+    (store: RootStateOrAny) => store.imagesStore.imageDetails.comments
   );
-  const loading = useSelector((store) => store.imagesStore.loading);
+  const loading = useSelector((store: RootStateOrAny) => store.imagesStore.loading);
 
   if (!id) return null;
 
@@ -62,7 +66,5 @@ const ImageModal = () => {
     </Modal>
   );
 };
-
-ImageModal.propTypes = {};
 
 export default ImageModal;

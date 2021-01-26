@@ -27,5 +27,5 @@ export {
   CommentListParagraph,
   CommentListItem,
   CommentListGroup,
-  CommentListTime,
+  CommentListTime
 };

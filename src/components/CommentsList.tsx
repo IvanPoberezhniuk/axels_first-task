@@ -7,8 +7,18 @@ import {
   CommentListTime
 } from '../styled/components/CommentsList';
 
-const CommentsList = ({ comments }) => {
-  const convertDate = (comment) =>
+interface Comment {
+  id: number,
+  text: string,
+  date: number
+}
+
+interface Props {
+  comments: Array<Comment>
+}
+
+const CommentsList = ({ comments }: Props) => {
+  const convertDate = (comment: Comment) =>
     new Date(comment.date).toLocaleDateString().split('/').join('.');
 
   return (
@@ -23,16 +33,6 @@ const CommentsList = ({ comments }) => {
       ))}
     </CommentListGroup>
   );
-};
-
-CommentsList.propTypes = {
-  comments: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.number,
-      id: PropTypes.number,
-      text: PropTypes.string
-    })
-  ).isRequired
 };
 
 export default CommentsList;

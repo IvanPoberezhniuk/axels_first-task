@@ -6,16 +6,19 @@ import { routes, RouteWithSubRoutes } from './routes/routes';
 import { AppDiv } from './styled/App';
 import './App.scss';
 
+interface ILocationState {
+  background: string
+}
+
 const App = () => {
-  const location = useLocation();
-  // @ts-ignore
+  const location = useLocation<ILocationState>();
   const backgroundPage = location.state && location.state.background;
 
   return (
     <AppDiv>
       <Header />
       <main>
-        <Switch location={backgroundPage || location}>
+        <Switch location={(backgroundPage || location)}>
           {routes.map((route, i) => (
             <RouteWithSubRoutes key={i} {...route} />
           ))}

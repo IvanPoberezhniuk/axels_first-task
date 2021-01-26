@@ -1,24 +1,27 @@
 import React, { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 
 import { ImageCard } from '../components';
 
-import { fetchImages } from '../redux/ducks/images';
+import { fetchImages, Image } from '../redux/ducks/images';
+import { AppDispatch } from '../redux/configureStore';
 
 const GalleryPage = () => {
   const location = useLocation();
-  const dispatch = useDispatch();
-  const imagesList = useSelector((store) => store.imagesStore.images);
+  const dispatch: AppDispatch = useDispatch();
+  const imagesList: Array<Image> = useSelector((store: RootStateOrAny) => store.imagesStore.images);
 
-  useEffect(() => dispatch(fetchImages()), [dispatch]);
+  useEffect(() => {
+    dispatch(fetchImages());
+  }, [dispatch]);
 
   return (
     <div>
       <Container>
         <Row>
-          {imagesList.map((img) => (
+          {imagesList.map((img: Image) => (
             <Col xs={12} md={6} lg={4} xl={4} key={img.id}>
               <Link
                 to={{
@@ -35,7 +38,5 @@ const GalleryPage = () => {
     </div>
   );
 };
-
-GalleryPage.propTypes = {};
 
 export default GalleryPage;

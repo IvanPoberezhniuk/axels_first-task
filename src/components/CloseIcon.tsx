@@ -6,7 +6,7 @@ interface Props {
   onIconClick: () => void
 }
 
-const CloseIcon: React.FC<Props> = ({ onIconClick }) => (
+const CloseIcon = ({ onIconClick }: Props) => (
   <CloseIconStyles onClick={onIconClick} />
 );
 

@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import { ImageCardImg } from '../styled/components/ImageCard';
 
-const ImageCard = ({ url }) => <ImageCardImg src={url} alt="photo" rounded />;
+interface Props {
+  url?: string
+}
 
-ImageCard.propTypes = {
-  url: PropTypes.string.isRequired,
-};
+const ImageCard = ({ url }: Props) => <ImageCardImg src={url} alt='photo' rounded />;
 
 export default ImageCard;

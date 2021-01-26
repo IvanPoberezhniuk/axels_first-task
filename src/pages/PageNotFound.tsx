@@ -6,6 +6,4 @@ const PageNotFound = () => (
   </div>
 );
 
-PageNotFound.propTypes = {};
-
 export default PageNotFound;
