@@ -9,7 +9,6 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.0",
-    "@types/jest": "^26.0.20",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",
     "@types/react-bootstrap": "^0.32.25",
@@ -54,11 +53,16 @@
     ]
   },
   "devDependencies": {
+    "@types/enzyme": "^3.10.8",
+    "@types/jest": "^26.0.20",
     "@types/react-dom": "^17.0.0",
     "@types/react-redux": "^7.1.16",
     "@types/react-router-dom": "^5.1.7",
     "@types/redux-logger": "^3.0.8",
     "@types/styled-components": "^5.1.7",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.1",
     "gh-pages": "^3.1.0",
     "prettier": "2.2.1",
     "prop-types": "^15.7.2",
@@ -67,5 +71,18 @@
   },
   "prettier": {
     "singleQuote": true
+  },
+  "jest": {
+    "clearMocks": true,
+    "snapshotSerializers": [
+      "./node_modules/enzyme-to-json/serializer"
+    ],
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
+      "\\.(css|scss)$": "identity-obj-proxy"
+    }
   }
 }
