@@ -1,11 +1,11 @@
 import { Switch, useLocation, Route } from 'react-router-dom';
+import { Hash, LocationKey, Pathname, Search } from 'history';
 
 import { Footer, Header, ImageModal } from './components';
 
 import { routes, RouteWithSubRoutes } from './routes/routes';
 import { AppDiv } from './styled/App';
 import './App.scss';
-import { Hash, LocationKey, Pathname, Search } from 'history';
 
 type ILocationState = {
   pathname: Pathname;
