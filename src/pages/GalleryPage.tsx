@@ -11,7 +11,9 @@ import { AppDispatch } from '../redux/configureStore';
 const GalleryPage = () => {
   const location = useLocation();
   const dispatch: AppDispatch = useDispatch();
-  const imagesList: Array<Image> = useSelector((store: RootStateOrAny) => store.imagesStore.images);
+  const imagesList: Array<Image> = useSelector(
+    (store: RootStateOrAny) => store.imagesStore.images
+  );
 
   useEffect(() => {
     dispatch(fetchImages());
@@ -26,7 +28,7 @@ const GalleryPage = () => {
               <Link
                 to={{
                   pathname: `/gallery/${img.id}`,
-                  state: { background: location }
+                  state: { background: location },
                 }}
               >
                 <ImageCard url={img.url} />

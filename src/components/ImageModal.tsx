@@ -9,7 +9,7 @@ import { ImageModalCol, ImageModalDiv } from '../styled/components/ImageModal';
 import { fetchImageDetails } from '../redux/ducks/images';
 
 interface RouteParams {
-  id: string
+  id: string;
 }
 
 const ImageModal = () => {
@@ -17,17 +17,23 @@ const ImageModal = () => {
   const { id } = useParams<RouteParams>();
   const history = useHistory();
   const dispatch = useDispatch();
-  const image = useSelector((store: RootStateOrAny) => store.imagesStore.imageDetails);
+  const image = useSelector(
+    (store: RootStateOrAny) => store.imagesStore.imageDetails
+  );
   const comments = useSelector(
     (store: RootStateOrAny) => store.imagesStore.imageDetails.comments
   );
-  const loading = useSelector((store: RootStateOrAny) => store.imagesStore.loading);
+  const loading = useSelector(
+    (store: RootStateOrAny) => store.imagesStore.loading
+  );
 
   if (!id) return null;
 
-  const getImgInfo = () => dispatch(fetchImageDetails(id));
+  const getImgInfo = (): void => {
+    dispatch(fetchImageDetails(id));
+  };
 
-  const onHide = () => {
+  const onHide = (): void => {
     setShow(false);
     setTimeout(() => history.push('/gallery'), 300);
   };
@@ -36,8 +42,8 @@ const ImageModal = () => {
     <Modal
       show={show}
       onHide={() => onHide()}
-      size='lg'
-      aria-labelledby='contained-modal-title-vcenter'
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
       onShow={getImgInfo}
       centered
     >
@@ -47,8 +53,8 @@ const ImageModal = () => {
           <ImageModalCol xs={12} md={7}>
             <ImageModalDiv>
               {loading ? (
-                <Spinner animation='border' role='status'>
-                  <span className='sr-only'>Loading...</span>
+                <Spinner animation="border" role="status">
+                  <span className="sr-only">Loading...</span>
                 </Spinner>
               ) : (
                 <Image src={image.url} fluid />

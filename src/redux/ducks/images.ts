@@ -1,26 +1,27 @@
 import { createAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { call, put, takeEvery } from '@redux-saga/core/effects';
-import { getImageById, getImages } from '../../api/httpRequests';
+
+import { http } from '../../api/httpRequests';
 
 export interface Comment {
-  id: number,
-  text: string,
-  date: number
+  id: number;
+  text: string;
+  date: number;
 }
 
 export interface Image {
-  id: number | undefined,
-  url: string | undefined
+  id: number | undefined;
+  url: string | undefined;
 }
 
 export interface ImageDetails extends Image {
-  comments: Array<Comment>
+  comments: Array<Comment>;
 }
 
 export interface CurrentDisplayState {
-  loading: boolean,
-  images: Array<Image>,
-  imageDetails: ImageDetails | any,
+  loading: boolean;
+  images: Array<Image>;
+  imageDetails: ImageDetails | any;
 }
 
 const initialState: CurrentDisplayState = {
@@ -29,8 +30,8 @@ const initialState: CurrentDisplayState = {
   imageDetails: {
     id: undefined,
     url: undefined,
-    comments: []
-  }
+    comments: [],
+  },
 };
 
 export const imagesSlice = createSlice({
@@ -38,18 +39,16 @@ export const imagesSlice = createSlice({
   initialState,
   reducers: {
     fetchImageDetails: {
-      reducer(state, action: PayloadAction<{ id: number }>) {
-      },
+      reducer(state, action: PayloadAction<{ id: number }>) {},
       prepare: (id) => ({
-        payload: { id }
-      })
+        payload: { id },
+      }),
     },
     addComment: {
-      reducer(state, action: PayloadAction<Comment>) {
-      },
+      reducer(state, action: PayloadAction<Comment>) {},
       prepare: (commentInfo) => ({
-        payload: commentInfo
-      })
+        payload: commentInfo,
+      }),
     },
     putImages(state, action: PayloadAction<Array<ImageDetails>>) {
       state.images = action.payload;
@@ -62,14 +61,14 @@ export const imagesSlice = createSlice({
         ...state,
         imageDetails: {
           ...state.imageDetails,
-          comments: [...state.imageDetails.comments, action.payload]
-        }
+          comments: [...state.imageDetails.comments, action.payload],
+        },
       };
     },
     setLoading(state, action) {
       state.loading = action.payload;
-    }
-  }
+    },
+  },
 });
 
 export const fetchImages = createAction<undefined>('images/fetch');
@@ -90,7 +89,7 @@ export function* watcherAddComment() {
 // workers
 function* workerFetchImages() {
   try {
-    const images = yield call(getImages);
+    const images = yield call(() => http<Array<Image>>('/images'));
     yield put(putImages(images));
   } catch (error) {
     console.log(error);
@@ -100,7 +99,8 @@ function* workerFetchImages() {
 function* workerImageDetails(action: PayloadAction<{ id: number }>) {
   try {
     yield put(setLoading(true));
-    const image = yield call(() => getImageById(action.payload.id));
+    const id = action.payload.id;
+    const image = yield call(() => http<ImageDetails>(`/images/${id}`));
     yield put(putImageDetails(image));
   } catch (error) {
     console.log(error);
@@ -123,6 +123,6 @@ export const {
   putImages,
   putImageDetails,
   putComment,
-  setLoading
+  setLoading,
 } = imagesSlice.actions;
 export default imagesSlice.reducer;

@@ -4,17 +4,17 @@ import {
   CommentListGroup,
   CommentListItem,
   CommentListParagraph,
-  CommentListTime
+  CommentListTime,
 } from '../styled/components/CommentsList';
 
 interface Comment {
-  id: number,
-  text: string,
-  date: number
+  id: number;
+  text: string;
+  date: number;
 }
 
 interface Props {
-  comments: Array<Comment>
+  comments: Array<Comment>;
 }
 
 const CommentsList = ({ comments }: Props) => {
@@ -23,7 +23,7 @@ const CommentsList = ({ comments }: Props) => {
 
   return (
     <CommentListGroup>
-      {comments.map((comment) => (
+      {comments.map((comment: Comment) => (
         <CommentListItem key={comment.id}>
           <CommentListParagraph>
             <CommentListTime> {convertDate(comment)} </CommentListTime>

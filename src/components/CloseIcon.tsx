@@ -3,7 +3,7 @@ import React from 'react';
 import { CloseIconStyles } from '../styled/components/CloseIcon';
 
 interface Props {
-  onIconClick: () => void
+  onIconClick: () => void;
 }
 
 const CloseIcon = ({ onIconClick }: Props) => (
