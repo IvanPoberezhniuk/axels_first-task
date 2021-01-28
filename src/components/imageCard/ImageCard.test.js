@@ -1,8 +1,8 @@
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { unmountComponentAtNode } from 'react-dom';
 
-const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
+import { ImageCard } from '../index';
+
+const setUp = () => render(<ImageCard />);
 let component;
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ afterEach(() => {
   component = null;
 });
 
-describe('APP COMPONENT', () => {
+describe('ImageCard component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });

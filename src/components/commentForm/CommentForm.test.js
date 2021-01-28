@@ -1,8 +1,11 @@
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { unmountComponentAtNode } from 'react-dom';
+import { Provider } from 'react-redux';
 
-const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
+import { CommentForm } from '../index';
+
+import store from '../../redux/configureStore';
+
+const setUp = () => render(<Provider store={store}><CommentForm /></Provider>);
 let component;
 
 beforeEach(() => {
@@ -15,7 +18,7 @@ afterEach(() => {
   component = null;
 });
 
-describe('APP COMPONENT', () => {
+describe('CommentForm component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });

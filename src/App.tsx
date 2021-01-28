@@ -33,7 +33,7 @@ const App = () => {
           ))}
         </Switch>
         {backgroundPage && (
-          <Route path="/gallery/:id" children={<ImageModal />} />
+          <Route path='/gallery/:id' children={<ImageModal />} />
         )}
       </main>
       <Footer />

@@ -1,8 +1,12 @@
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { unmountComponentAtNode } from 'react-dom';
 
-const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
+import { Provider } from 'react-redux';
+
+import { ImageModal } from '../../index';
+
+import store from '../../redux/configureStore';
+
+const setUp = () => render(<Provider store={store}><ImageModal /></Provider>);
 let component;
 
 beforeEach(() => {
@@ -15,7 +19,7 @@ afterEach(() => {
   component = null;
 });
 
-describe('APP COMPONENT', () => {
+describe('ImageModal component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });

@@ -1,8 +1,8 @@
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { unmountComponentAtNode } from 'react-dom';
 
-const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
+import PageNotFound from './PageNotFound';
+
+const setUp = () => render(<PageNotFound />);
 let component;
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ afterEach(() => {
   component = null;
 });
 
-describe('APP COMPONENT', () => {
+describe('PageNotFound component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });

@@ -1,8 +1,8 @@
-import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 import { unmountComponentAtNode } from 'react-dom';
 
-const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
+import { Header } from '../../index';
+
+const setUp = () => render(<Header />);
 let component;
 
 beforeEach(() => {
@@ -15,7 +15,7 @@ afterEach(() => {
   component = null;
 });
 
-describe('APP COMPONENT', () => {
+describe('Header component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });

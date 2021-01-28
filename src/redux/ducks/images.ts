@@ -30,8 +30,8 @@ const initialState: CurrentDisplayState = {
   imageDetails: {
     id: undefined,
     url: undefined,
-    comments: [],
-  },
+    comments: []
+  }
 };
 
 export const imagesSlice = createSlice({
@@ -39,16 +39,18 @@ export const imagesSlice = createSlice({
   initialState,
   reducers: {
     fetchImageDetails: {
-      reducer(state, action: PayloadAction<{ id: number }>) {},
+      reducer(state, action: PayloadAction<{ id: number }>) {
+      },
       prepare: (id) => ({
-        payload: { id },
-      }),
+        payload: { id }
+      })
     },
     addComment: {
-      reducer(state, action: PayloadAction<Comment>) {},
+      reducer(state, action: PayloadAction<Comment>) {
+      },
       prepare: (commentInfo) => ({
-        payload: commentInfo,
-      }),
+        payload: commentInfo
+      })
     },
     putImages(state, action: PayloadAction<Array<ImageDetails>>) {
       state.images = action.payload;
@@ -61,14 +63,14 @@ export const imagesSlice = createSlice({
         ...state,
         imageDetails: {
           ...state.imageDetails,
-          comments: [...state.imageDetails.comments, action.payload],
-        },
+          comments: [...state.imageDetails.comments, action.payload]
+        }
       };
     },
     setLoading(state, action) {
       state.loading = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const fetchImages = createAction<undefined>('images/fetch');
@@ -123,6 +125,6 @@ export const {
   putImages,
   putImageDetails,
   putComment,
-  setLoading,
+  setLoading
 } = imagesSlice.actions;
 export default imagesSlice.reducer;

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Image, Modal, Row, Spinner } from 'react-bootstrap';
-import { useParams, useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
 
-import { CloseIcon, CommentsList, CommentForm } from './index';
+import { CloseIcon, CommentForm, CommentsList } from '../index';
 
-import { ImageModalCol, ImageModalDiv } from '../styled/components/ImageModal';
-import { fetchImageDetails } from '../redux/ducks/images';
+import { ImageModalCol, ImageModalDiv } from '../../styled/components/ImageModal';
+import { fetchImageDetails } from '../../redux/ducks/images';
 
 interface RouteParams {
   id: string;
@@ -42,8 +42,8 @@ const ImageModal = () => {
     <Modal
       show={show}
       onHide={() => onHide()}
-      size="lg"
-      aria-labelledby="contained-modal-title-vcenter"
+      size='lg'
+      aria-labelledby='contained-modal-title-vcenter'
       onShow={getImgInfo}
       centered
     >
@@ -53,8 +53,8 @@ const ImageModal = () => {
           <ImageModalCol xs={12} md={7}>
             <ImageModalDiv>
               {loading ? (
-                <Spinner animation="border" role="status">
-                  <span className="sr-only">Loading...</span>
+                <Spinner animation='border' role='status'>
+                  <span className='sr-only'>Loading...</span>
                 </Spinner>
               ) : (
                 <Image src={image.url} fluid />

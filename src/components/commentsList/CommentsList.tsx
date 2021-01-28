@@ -4,8 +4,8 @@ import {
   CommentListGroup,
   CommentListItem,
   CommentListParagraph,
-  CommentListTime,
-} from '../styled/components/CommentsList';
+  CommentListTime
+} from '../../styled/components/CommentsList';
 
 interface Comment {
   id: number;
