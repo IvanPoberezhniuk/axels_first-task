@@ -1,18 +1,12 @@
-import { unmountComponentAtNode } from 'react-dom';
-
 import { CommentsList } from '../index';
+import { Provider } from 'react-redux';
+import store from '../../redux/configureStore';
 
-const setUp = () => render(<CommentsList />);
+const setUp = () => shallow(<Provider store={store}><CommentsList /></Provider>);
 let component;
 
 beforeEach(() => {
   component = setUp();
-});
-
-afterEach(() => {
-  unmountComponentAtNode(component);
-  component.remove();
-  component = null;
 });
 
 describe('CommentsList component', () => {

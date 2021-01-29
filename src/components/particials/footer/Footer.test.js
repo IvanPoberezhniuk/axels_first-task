@@ -1,5 +1,3 @@
-import { unmountComponentAtNode } from 'react-dom';
-
 import { Footer } from '../../index';
 
 const setUp = () => render(<Footer />);
@@ -9,11 +7,6 @@ beforeEach(() => {
   component = setUp();
 });
 
-afterEach(() => {
-  unmountComponentAtNode(component);
-  component.remove();
-  component = null;
-});
 
 describe('Footer component', () => {
   it('SNAPSHOT', () => {

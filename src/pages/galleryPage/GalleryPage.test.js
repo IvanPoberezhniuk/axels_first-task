@@ -1,18 +1,26 @@
-import { unmountComponentAtNode } from 'react-dom';
-
+import { Provider } from 'react-redux';
+import { MemoryRouter } from 'react-router-dom';
 import GalleryPage from './GalleryPage';
+import store from '../../redux/configureStore';
+import React from 'react';
 
-const setUp = () => render(<GalleryPage />);
+const history = { pathname: '/' };
+const setUp = (props) => render(
+  <Provider store={store}>
+    <MemoryRouter history={history}>
+      <GalleryPage {...props} />
+    </MemoryRouter>
+  </Provider>);
+
 let component;
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useLayoutEffect: jest.requireActual('react').useEffect
+}));
 
 beforeEach(() => {
   component = setUp();
-});
-
-afterEach(() => {
-  unmountComponentAtNode(component);
-  component.remove();
-  component = null;
 });
 
 describe('GalleryPage component', () => {
@@ -20,4 +28,3 @@ describe('GalleryPage component', () => {
     expect(component).toMatchSnapshot();
   });
 });
-
