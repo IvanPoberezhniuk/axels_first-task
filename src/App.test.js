@@ -12,5 +12,8 @@ describe('APP COMPONENT', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
   });
+
+  describe('statements', () => {
+  });
 });
 
