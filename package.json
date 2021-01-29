@@ -29,8 +29,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest",
-    "test:coverage": "jest --coverage",
+    "test": "react-scripts test",
+    "coverage": "react-scripts test --coverage --watchAll",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -75,21 +75,15 @@
     "singleQuote": true
   },
   "jest": {
-    "clearMocks": true,
     "snapshotSerializers": [
-      "./node_modules/enzyme-to-json/serializer"
+      "enzyme-to-json/serializer"
     ],
     "collectCoverageFrom": [
-      "**/*.{js,jsx,tsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**"
+      "src/**/*.{js,jsx,tsx}",
+      "!src/index.js"
     ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
-      "\\.(css|scss)$": "identity-obj-proxy"
-    }
+    "coverageReporters": [
+      "text"
+    ]
   }
 }
