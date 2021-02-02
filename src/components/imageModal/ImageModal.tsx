@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Image, Modal, Row, Spinner } from 'react-bootstrap';
 import { useHistory, useParams } from 'react-router-dom';
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { CloseIcon, CommentForm, CommentsList } from '../index';
 
 import { ImageModalCol, ImageModalDiv } from '../../styled/components/ImageModal';
 import { fetchImageDetails } from '../../redux/ducks/images';
+import Selectors from '../../redux/selectors';
 
 interface RouteParams {
   id: string;
@@ -17,15 +18,8 @@ const ImageModal = () => {
   const { id } = useParams<RouteParams>();
   const history = useHistory();
   const dispatch = useDispatch();
-  const image = useSelector(
-    (store: RootStateOrAny) => store.imagesStore.imageDetails
-  );
-  const comments = useSelector(
-    (store: RootStateOrAny) => store.imagesStore.imageDetails.comments
-  );
-  const loading = useSelector(
-    (store: RootStateOrAny) => store.imagesStore.loading
-  );
+  const image = useSelector(Selectors.imageDetails);
+  const loading = useSelector(Selectors.loading);
 
   if (!id) return null;
 
@@ -62,7 +56,7 @@ const ImageModal = () => {
             </ImageModalDiv>
           </ImageModalCol>
           <ImageModalCol xs={12} md={5}>
-            <CommentsList comments={comments} />
+            <CommentsList comments={image.comments} />
           </ImageModalCol>
           <ImageModalCol xs={12} md={7}>
             <CommentForm />

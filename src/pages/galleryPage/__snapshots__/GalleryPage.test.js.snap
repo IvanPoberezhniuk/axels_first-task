@@ -1,3 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GalleryPage component Snapshot SNAPSHOT 1`] = `undefined`;
+exports[`GalleryPage Component Snapshot SNAPSHOT 1`] = `
+<div>
+  <Container
+    fluid={false}
+  >
+    <Row
+      noGutters={false}
+    >
+      <Col
+        key="222"
+        lg={4}
+        md={6}
+        xl={4}
+        xs={12}
+      >
+        <Link
+          to={
+            Object {
+              "pathname": "/gallery/222",
+              "state": Object {
+                "background": [MockFunction],
+              },
+            }
+          }
+        >
+          <ImageCard
+            url="/fakeUri/images"
+          />
+        </Link>
+      </Col>
+      <Col
+        key="222"
+        lg={4}
+        md={6}
+        xl={4}
+        xs={12}
+      >
+        <Link
+          to={
+            Object {
+              "pathname": "/gallery/222",
+              "state": Object {
+                "background": [MockFunction],
+              },
+            }
+          }
+        >
+          <ImageCard
+            url="/fakeUri/images"
+          />
+        </Link>
+      </Col>
+    </Row>
+  </Container>
+</div>
+`;

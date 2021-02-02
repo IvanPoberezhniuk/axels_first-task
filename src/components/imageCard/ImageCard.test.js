@@ -1,7 +1,7 @@
 import { ImageCard } from '../index';
 
-const setUp = () => render(<ImageCard />);
 let component;
+const setUp = () => shallow(<ImageCard />);
 
 beforeEach(() => {
   component = setUp();

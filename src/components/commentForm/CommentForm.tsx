@@ -21,8 +21,8 @@ const CommentForm = () => {
     validationSchema: Yup.object().shape({
       name: Yup.string()
         .required('Enter your name')
-        .min(4, 'Min length 4 charachters')
-        .max(15, 'Max length 15 charachters')
+        .min(4, 'Min length 4 characters')
+        .max(15, 'Max length 15 characters')
         .trim(),
       text: Yup.string()
         .required('Enter comment text')
@@ -34,7 +34,7 @@ const CommentForm = () => {
   });
 
   return (
-    <Form noValidate onSubmit={handleSubmit}>
+    <Form noValidate className='comment-form' onSubmit={handleSubmit}>
       <Form.Group controlId='name'>
         <Form.Control
           type='text'

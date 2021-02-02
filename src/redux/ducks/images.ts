@@ -52,7 +52,7 @@ export const imagesSlice = createSlice({
         payload: commentInfo
       })
     },
-    putImages(state, action: PayloadAction<Array<ImageDetails>>) {
+    putImages(state, action: PayloadAction<Array<Image>>) {
       state.images = action.payload;
     },
     putImageDetails(state, action) {
@@ -89,7 +89,7 @@ export function* watcherAddComment() {
 }
 
 // workers
-function* workerFetchImages() {
+export function* workerFetchImages() {
   try {
     const images = yield call(() => http<Array<Image>>('/images'));
     yield put(putImages(images));
@@ -98,7 +98,7 @@ function* workerFetchImages() {
   }
 }
 
-function* workerImageDetails(action: PayloadAction<{ id: number }>) {
+export function* workerImageDetails(action: PayloadAction<{ id: number }>) {
   try {
     yield put(setLoading(true));
     const id = action.payload.id;
@@ -111,12 +111,8 @@ function* workerImageDetails(action: PayloadAction<{ id: number }>) {
   }
 }
 
-function* workerPutComment(action: PayloadAction<Comment>) {
-  try {
-    yield put(putComment(action.payload));
-  } catch (error) {
-    console.log(error);
-  }
+export function* workerPutComment(action: PayloadAction<Comment>) {
+  yield put(putComment(action.payload));
 }
 
 export const {

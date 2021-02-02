@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`ImageCard component SNAPSHOT 1`] = `
-<img
+<Styled(Image)
   alt="photo"
-  class="sc-iBPRYJ kcuWgS rounded"
+  rounded={true}
 />
 `;
