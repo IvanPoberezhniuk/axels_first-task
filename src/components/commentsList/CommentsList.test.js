@@ -1,9 +1,12 @@
 import { CommentsList } from '../index';
-import { Provider } from 'react-redux';
-import store from '../../redux/configureStore';
 
-const setUp = () => shallow(<Provider store={store}><CommentsList /></Provider>);
 let component;
+const setUp = () => shallow(<CommentsList />);
+
+jest.mock('react-redux', () => ({
+  ...jest.requireActual('react-redux'),
+  useDispatch: () => mockUseDispatch
+}));
 
 beforeEach(() => {
   component = setUp();

@@ -6,21 +6,14 @@ import {
   CommentListParagraph,
   CommentListTime
 } from '../../styled/components/CommentsList';
-
-interface Comment {
-  id: number;
-  text: string;
-  date: number;
-}
+import { convertDate } from '../../utils/date';
+import { Comment } from '../../redux/ducks/images';
 
 interface Props {
   comments: Array<Comment>;
 }
 
 const CommentsList = ({ comments }: Props) => {
-  const convertDate = (comment: Comment) =>
-    new Date(comment.date).toLocaleDateString().split('/').join('.');
-
   return (
     <CommentListGroup>
       {comments.map((comment: Comment) => (

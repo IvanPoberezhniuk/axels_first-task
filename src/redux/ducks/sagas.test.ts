@@ -26,7 +26,7 @@ describe('sagas: ', () => {
       const dispatched: [] = [];
 
       await runSaga({
-        dispatch: (action) => dispatched.push(action)
+        dispatch: (action: never) => dispatched.push(action)
       }, workerFetchImages);
 
       expect(requestImages).toHaveBeenCalledTimes(1);
@@ -52,7 +52,7 @@ describe('sagas: ', () => {
       const dispatched: [] = [];
 
       await runSaga({
-        dispatch: (action) => dispatched.push(action)
+        dispatch: (action: never) => dispatched.push(action)
       }, workerImageDetails, fetchImageDetails(id));
 
       expect(requestImageDetails).toHaveBeenCalledTimes(1);
@@ -76,7 +76,7 @@ describe('sagas: ', () => {
     const dispatched: [] = [];
 
     await runSaga({
-      dispatch: (action) => dispatched.push(action)
+      dispatch: (action: never) => dispatched.push(action)
     }, workerPutComment, addComment(mockedComment));
 
     expect(dispatched).toEqual([setLoading(true), putComment(mockedComment), setLoading(false)]);
