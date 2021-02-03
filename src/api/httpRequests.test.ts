@@ -1,9 +1,19 @@
 import { http } from './httpRequests';
 
+afterEach(() => {
+  jest.restoreAllMocks();
+});
+
 describe('http()', () => {
-  jest.spyOn(global, 'fetch').mockImplementation({})
-  test('should be called once', async () => {
-    const result = await http('test');
-    await expect(result).toBeCalledTimes(12);
+  const spied = jest.spyOn(global, 'fetch').mockImplementation(jest.fn());
+
+  it('should be called once', () => {
+    http('/test');
+    expect(spied).toBeCalledTimes(1);
+  });
+
+  it('should be called once', () => {
+    http('/test');
+    expect(spied).not.toBeCalledTimes(12);
   });
 });
