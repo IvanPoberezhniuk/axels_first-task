@@ -86,7 +86,8 @@
       "!src/**/index.{js,jsx,tsx,ts}",
       "!src/index.tsx",
       "!src/reportWebVitals.js",
-      "!src/react-app-env.d.ts"
+      "!src/react-app-env.d.ts",
+      "!src/redux/*.{js,ts}"
     ],
     "coverageReporters": [
       "text"
