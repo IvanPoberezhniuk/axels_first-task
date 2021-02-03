@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
 import { addComment } from '../../redux/ducks/images';
+import Selectors from '../../redux/selectors';
 
 interface FormValues {
   name: string;
@@ -13,6 +14,7 @@ interface FormValues {
 
 const CommentForm = () => {
   const dispatch = useDispatch();
+  const isLoading = useSelector(Selectors.loading);
   const { getFieldProps, handleSubmit, touched, errors } = useFormik({
     initialValues: {
       name: '',
@@ -50,7 +52,7 @@ const CommentForm = () => {
       <Form.Group controlId='comment'>
         <Form.Control
           type='text'
-          placeholder='Ваше комментарий'
+          placeholder='Ваш комментарий'
           isValid={touched.text && !errors.text}
           isInvalid={!!touched.text && !!errors.text}
           {...getFieldProps('text')}
@@ -59,13 +61,11 @@ const CommentForm = () => {
           {errors.text}
         </Form.Control.Feedback>
       </Form.Group>
-      <Button variant='primary' type='submit' block>
+      <Button variant='primary' type='submit' disabled={isLoading} block>
         Оставить комментарий
       </Button>
     </Form>
   );
 };
-
-CommentForm.propTypes = {};
 
 export default CommentForm;

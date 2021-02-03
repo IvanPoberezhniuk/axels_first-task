@@ -79,6 +79,6 @@ describe('sagas: ', () => {
       dispatch: (action) => dispatched.push(action)
     }, workerPutComment, addComment(mockedComment));
 
-    expect(dispatched).toEqual([putComment(mockedComment)]);
+    expect(dispatched).toEqual([setLoading(true), putComment(mockedComment), setLoading(false)]);
   });
 });

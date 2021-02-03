@@ -1,18 +1,24 @@
 import { CommentForm } from '../index';
-import { mockedImage } from '../../__mocks__';
+import * as redux from 'react-redux';
+import { FormControl } from 'react-bootstrap';
 
-const setUp = () => mount(<CommentForm />);
 let component;
 const mockUseDispatch = jest.fn();
+const setUp = () => shallow(<CommentForm />);
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual('react-redux'),
-  useDispatch: () => mockUseDispatch,
-  useSelector: () => ([mockedImage, mockedImage])
+  useDispatch: () => mockUseDispatch
 }));
+
+const spy = jest.spyOn(redux, 'useSelector').mockResolvedValue(true);
 
 beforeEach(() => {
   component = setUp();
+});
+
+afterEach(() => {
+  jest.resetAllMocks();
 });
 
 describe('CommentForm component', () => {
@@ -20,11 +26,27 @@ describe('CommentForm component', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('test', () => {
-    const res = component.find('[className="btn btn-primary btn-block"]').simulate('click');
+  describe('Inputs: ', () => {
+    it('should render 2 inputs', () => {
+      const inputCount = component.find(FormControl).length;
+      expect(inputCount).toBe(2);
+    });
   });
 
-  it('test', () => {
-    const res = component.find('form.comment-form').simulate('submit');
+  describe('button: ', () => {
+    it('should be false onInit', async () => {
+      expect(component.find('Button').props().disabled).toBe(false);
+    });
+
+    it('should onSubmit call method once', async () => {
+      spy.mockReset();
+      await component.find('Form').simulate('submit');
+      expect(spy).toBeCalledTimes(2);
+    });
+
+    it('should onSubmit call method once', async () => {
+      await component.find('Button').simulate('click');
+      expect(spy).toBeCalledTimes(1);
+    });
   });
 });

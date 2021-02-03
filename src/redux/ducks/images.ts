@@ -112,7 +112,12 @@ export function* workerImageDetails(action: PayloadAction<{ id: number }>) {
 }
 
 export function* workerPutComment(action: PayloadAction<Comment>) {
-  yield put(putComment(action.payload));
+  try {
+    yield put(setLoading(true));
+    yield put(putComment(action.payload));
+  } finally {
+    yield put(setLoading(false));
+  }
 }
 
 export const {

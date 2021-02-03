@@ -1,104 +1,52 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CommentForm component SNAPSHOT 1`] = `
-<CommentForm>
-  <Form
-    className="comment-form"
-    inline={false}
-    noValidate={true}
-    onSubmit={[Function]}
+<Form
+  className="comment-form"
+  inline={false}
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <FormGroup
+    controlId="name"
   >
-    <form
-      className="comment-form"
-      noValidate={true}
-      onSubmit={[Function]}
-    >
-      <FormGroup
-        controlId="name"
-      >
-        <div
-          className="form-group"
-        >
-          <FormControl
-            isInvalid={false}
-            name="name"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="Ваше имя"
-            type="text"
-            value=""
-          >
-            <input
-              className="form-control"
-              id="name"
-              name="name"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="Ваше имя"
-              type="text"
-              value=""
-            />
-          </FormControl>
-          <Feedback
-            type="invalid"
-          >
-            <div
-              className="invalid-feedback"
-            />
-          </Feedback>
-        </div>
-      </FormGroup>
-      <FormGroup
-        controlId="comment"
-      >
-        <div
-          className="form-group"
-        >
-          <FormControl
-            isInvalid={false}
-            name="text"
-            onBlur={[Function]}
-            onChange={[Function]}
-            placeholder="Ваше комментарий"
-            type="text"
-            value=""
-          >
-            <input
-              className="form-control"
-              id="comment"
-              name="text"
-              onBlur={[Function]}
-              onChange={[Function]}
-              placeholder="Ваше комментарий"
-              type="text"
-              value=""
-            />
-          </FormControl>
-          <Feedback
-            type="invalid"
-          >
-            <div
-              className="invalid-feedback"
-            />
-          </Feedback>
-        </div>
-      </FormGroup>
-      <Button
-        active={false}
-        block={true}
-        disabled={false}
-        type="submit"
-        variant="primary"
-      >
-        <button
-          className="btn btn-primary btn-block"
-          disabled={false}
-          type="submit"
-        >
-          Оставить комментарий
-        </button>
-      </Button>
-    </form>
-  </Form>
-</CommentForm>
+    <FormControl
+      isInvalid={false}
+      name="name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Ваше имя"
+      type="text"
+      value=""
+    />
+    <Feedback
+      type="invalid"
+    />
+  </FormGroup>
+  <FormGroup
+    controlId="comment"
+  >
+    <FormControl
+      isInvalid={false}
+      name="text"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Ваш комментарий"
+      type="text"
+      value=""
+    />
+    <Feedback
+      type="invalid"
+    />
+  </FormGroup>
+  <Button
+    active={false}
+    block={true}
+    disabled={false}
+    type="submit"
+    variant="primary"
+  >
+    Оставить комментарий
+  </Button>
+</Form>
 `;
