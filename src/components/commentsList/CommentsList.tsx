@@ -13,7 +13,7 @@ interface Props {
   comments: Array<Comment>;
 }
 
-const CommentsList = ({ comments }: Props) => {
+const CommentsList = ({ comments = [] }: Props) => {
   return (
     <CommentListGroup>
       {comments.map((comment: Comment) => (

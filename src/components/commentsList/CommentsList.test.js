@@ -1,20 +1,28 @@
 import { CommentsList } from '../index';
+import { mockedComment } from '../../__mocks__';
 
 let component;
-const setUp = () => shallow(<CommentsList />);
-
-jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
-  useDispatch: () => mockUseDispatch
-}));
+const setUp = (props) => shallow(<CommentsList {...props} />);
 
 beforeEach(() => {
-  component = setUp();
+  component = setUp({ comments: [mockedComment, mockedComment] });
 });
 
 describe('CommentsList component', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
+  });
+
+  it('should render 2 comments', () => {
+    const comments = component.find('Styled(ListGroupItem)');
+    expect(comments.length).toBe(2);
+  });
+
+  it('should render 2 comments', () => {
+    component = setUp();
+
+    const comments = component.find('Styled(ListGroupItem)');
+    expect(comments.length).toBe(0);
   });
 });
 
