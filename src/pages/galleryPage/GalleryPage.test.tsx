@@ -1,12 +1,14 @@
-import GalleryPage from './GalleryPage';
+import { shallow, ShallowWrapper } from 'enzyme';
 import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+
+import GalleryPage from './GalleryPage';
+
 import { mockedImage } from '../../__mocks__';
 
-let component;
+let component: ShallowWrapper;
 const mockUseDispatch = jest.fn();
 const mockUseLocation = jest.fn();
-const setUp = (props) => shallow(<GalleryPage {...props} />);
+const setUp = () => shallow(<GalleryPage />);
 
 beforeEach(async () => {
   component = await setUp();
@@ -17,13 +19,13 @@ afterEach(() => {
 });
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...jest.requireActual<object>('react-redux'),
   useDispatch: () => mockUseDispatch,
   useSelector: () => ([mockedImage, mockedImage])
 }));
 
 jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
+  ...jest.requireActual<object>('react-router-dom'),
   useLocation: () => mockUseLocation
 }));
 
@@ -33,8 +35,7 @@ describe('GalleryPage Component Snapshot', () => {
   });
 
   it('render all images from list', () => {
-    expect(component.find(Link).children()).toHaveLength(useSelector(() => {
-    }).length);
+    expect(component.find(Link).children()).toHaveLength(2);
   });
 });
 

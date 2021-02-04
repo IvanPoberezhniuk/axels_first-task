@@ -8,14 +8,14 @@ import { fetchImages, Image } from '../../redux/ducks/images';
 import { AppDispatch } from '../../redux/configureStore';
 import Selectors from '../../redux/selectors';
 
-const GalleryPage = (props: any) => {
+const GalleryPage = () => {
   const location = useLocation();
   const dispatch: AppDispatch = useDispatch();
   const imagesList: Array<Image> = useSelector(Selectors.images);
 
   useEffect(() => {
     dispatch(fetchImages());
-  }, [dispatch, props]);
+  }, [dispatch]);
 
   return (
     <div>

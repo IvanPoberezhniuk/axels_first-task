@@ -1,7 +1,9 @@
+import { shallow, ShallowWrapper } from 'enzyme';
+
 import { Header } from '../../index';
 
-const setUp = () => render(<Header />);
-let component;
+let component: ShallowWrapper;
+const setUp = () => shallow(<Header />);
 
 beforeEach(() => {
   component = setUp();

@@ -1,8 +1,12 @@
+import { shallow, ShallowWrapper } from 'enzyme';
+
 import { CommentsList } from '../index';
+
+import { Props } from './CommentsList';
 import { mockedComment } from '../../__mocks__';
 
-let component;
-const setUp = (props) => shallow(<CommentsList {...props} />);
+let component: ShallowWrapper;
+const setUp = (props?: Props) => shallow(<CommentsList {...props} />);
 
 beforeEach(() => {
   component = setUp({ comments: [mockedComment, mockedComment] });

@@ -1,7 +1,9 @@
+import { shallow, ShallowWrapper } from 'enzyme';
+
 import PageNotFound from './PageNotFound';
 
-const setUp = () => render(<PageNotFound />);
-let component;
+let component: ShallowWrapper;
+const setUp = () => shallow(PageNotFound());
 
 beforeEach(() => {
   component = setUp();

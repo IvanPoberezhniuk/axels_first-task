@@ -1,8 +1,10 @@
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
 
+import { BrowserRouter } from 'react-router-dom';
+import { render } from 'enzyme';
+
+let component: cheerio.Cheerio;
 const setUp = () => render(<BrowserRouter><App /></BrowserRouter>);
-let component;
 
 beforeEach(() => {
   component = setUp();
@@ -11,9 +13,6 @@ beforeEach(() => {
 describe('APP COMPONENT', () => {
   it('SNAPSHOT', () => {
     expect(component).toMatchSnapshot();
-  });
-
-  describe('statements', () => {
   });
 });
 

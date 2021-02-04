@@ -9,8 +9,8 @@ import {
 import { convertDate } from '../../utils/date';
 import { Comment } from '../../redux/ducks/images';
 
-interface Props {
-  comments: Array<Comment>;
+export interface Props {
+  comments?: Array<Comment>;
 }
 
 const CommentsList = ({ comments = [] }: Props) => {

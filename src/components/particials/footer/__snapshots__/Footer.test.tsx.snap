@@ -1,11 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Footer component SNAPSHOT 1`] = `
-<footer
-  class="sc-bdfBwQ jygzMn"
->
+<styled.footer>
   <small>
     © 2018-2019
   </small>
-</footer>
+</styled.footer>
 `;

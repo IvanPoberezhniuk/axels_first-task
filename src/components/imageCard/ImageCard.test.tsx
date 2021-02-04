@@ -1,6 +1,8 @@
+import { shallow, ShallowWrapper } from 'enzyme';
+
 import { ImageCard } from '../index';
 
-let component;
+let component: ShallowWrapper;
 const setUp = () => shallow(<ImageCard />);
 
 beforeEach(() => {

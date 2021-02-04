@@ -1,17 +1,19 @@
-import { CommentForm } from '../index';
 import * as redux from 'react-redux';
 import { FormControl } from 'react-bootstrap';
+import { shallow, ShallowWrapper } from 'enzyme';
 
-let component;
+import { CommentForm } from '../index';
+
+let component: ShallowWrapper;
 const mockUseDispatch = jest.fn();
-const setUp = () => shallow(<CommentForm />);
+const setUp = () => shallow(<CommentForm/>);
 
 jest.mock('react-redux', () => ({
-  ...jest.requireActual('react-redux'),
+  ...jest.requireActual<object>('react-redux'),
   useDispatch: () => mockUseDispatch
 }));
 
-const spy = jest.spyOn(redux, 'useSelector').mockResolvedValue(true);
+const spy = jest.spyOn(redux, 'useSelector');
 
 beforeEach(() => {
   component = setUp();
@@ -33,7 +35,7 @@ describe('CommentForm component', () => {
     });
   });
 
-  describe('button: ', () => {
+  describe('Button: ', () => {
     it('should be false onInit', async () => {
       expect(component.find('Button').props().disabled).toBe(false);
     });
