@@ -29,7 +29,7 @@ jest.mock('react-router-dom', () => ({
   useLocation: () => mockUseLocation
 }));
 
-describe('GalleryPage Component', () => {
+describe('GalleryPage component', () => {
   it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
