@@ -19,7 +19,7 @@ const CommentsList = ({ comments = [] }: Props) => {
       {comments.map((comment: Comment) => (
         <CommentListItem key={comment.id}>
           <CommentListParagraph>
-            <CommentListTime> {convertDate(comment)} </CommentListTime>
+            <CommentListTime> {convertDate(comment.date)} </CommentListTime>
           </CommentListParagraph>
           <CommentListParagraph>{comment.text}</CommentListParagraph>
         </CommentListItem>
