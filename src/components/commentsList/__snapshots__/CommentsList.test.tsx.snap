@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentsList component SNAPSHOT 1`] = `
+<Styled(ListGroup)>
+  <Styled(ListGroupItem)
+    key="222"
+  >
+    <styled.p>
+      <styled.time>
+         
+        1.1.1970
+         
+      </styled.time>
+    </styled.p>
+    <styled.p>
+      test
+    </styled.p>
+  </Styled(ListGroupItem)>
+  <Styled(ListGroupItem)
+    key="222"
+  >
+    <styled.p>
+      <styled.time>
+         
+        1.1.1970
+         
+      </styled.time>
+    </styled.p>
+    <styled.p>
+      test
+    </styled.p>
+  </Styled(ListGroupItem)>
+</Styled(ListGroup)>
+`;

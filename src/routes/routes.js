@@ -1,23 +1,23 @@
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-import GalleryPage from '../pages/GalleryPage';
-import PageNotFound from '../pages/PageNotFound';
+import GalleryPage from '../pages/galleryPage/GalleryPage';
+import PageNotFound from '../pages/pageNOtFound/PageNotFound';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    component: (props) => <Redirect to={'/gallery'} />,
+    component: () => <Redirect to='/gallery' />
   },
   {
     path: '/gallery',
     component: GalleryPage,
-    exact: true,
+    exact: true
   },
   {
     path: '*',
-    component: PageNotFound,
-  },
+    component: PageNotFound
+  }
 ];
 
 const RouteWithSubRoutes = (route) => (
