@@ -1,7 +1,7 @@
-import { Route, Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 
-import GalleryPage from '../pages/GalleryPage';
-import PageNotFound from '../pages/PageNotFound';
+import GalleryPage from '../pages/galleryPage/GalleryPage';
+import PageNotFound from '../pages/pageNOtFound/PageNotFound';
 
 const routes = [
   {

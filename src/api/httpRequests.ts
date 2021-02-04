@@ -6,6 +6,5 @@ interface HttpResponse<T> extends Response {
 
 export async function http<T>(url: string): Promise<T> {
   const response: HttpResponse<T> = await fetch(`${URL}${url}`);
-
   return response.json();
 }

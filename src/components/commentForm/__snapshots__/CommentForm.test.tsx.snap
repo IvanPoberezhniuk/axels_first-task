@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommentForm component SNAPSHOT 1`] = `
+<Form
+  className="comment-form"
+  inline={false}
+  noValidate={true}
+  onSubmit={[Function]}
+>
+  <FormGroup
+    controlId="name"
+  >
+    <FormControl
+      isInvalid={false}
+      name="name"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Ваше имя"
+      type="text"
+      value=""
+    />
+    <Feedback
+      type="invalid"
+    />
+  </FormGroup>
+  <FormGroup
+    controlId="comment"
+  >
+    <FormControl
+      isInvalid={false}
+      name="text"
+      onBlur={[Function]}
+      onChange={[Function]}
+      placeholder="Ваш комментарий"
+      type="text"
+      value=""
+    />
+    <Feedback
+      type="invalid"
+    />
+  </FormGroup>
+  <Button
+    active={false}
+    block={true}
+    disabled={false}
+    type="submit"
+    variant="primary"
+  >
+    Оставить комментарий
+  </Button>
+</Form>
+`;

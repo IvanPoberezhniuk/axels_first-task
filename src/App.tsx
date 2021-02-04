@@ -1,4 +1,4 @@
-import { Switch, useLocation, Route } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 import { Hash, LocationKey, Pathname, Search } from 'history';
 
 import { Footer, Header, ImageModal } from './components';
@@ -33,7 +33,7 @@ const App = () => {
           ))}
         </Switch>
         {backgroundPage && (
-          <Route path="/gallery/:id" children={<ImageModal />} />
+          <Route path='/gallery/:id' children={<ImageModal />} />
         )}
       </main>
       <Footer />

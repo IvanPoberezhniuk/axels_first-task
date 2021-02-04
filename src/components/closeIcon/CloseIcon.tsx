@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { CloseIconStyles } from '../styled/components/CloseIcon';
+import { CloseIconStyles } from '../../styled/components/CloseIcon';
 
-interface Props {
+export interface Props {
   onIconClick: () => void;
 }
 

@@ -30,8 +30,8 @@ const initialState: CurrentDisplayState = {
   imageDetails: {
     id: undefined,
     url: undefined,
-    comments: [],
-  },
+    comments: []
+  }
 };
 
 export const imagesSlice = createSlice({
@@ -39,18 +39,20 @@ export const imagesSlice = createSlice({
   initialState,
   reducers: {
     fetchImageDetails: {
-      reducer(state, action: PayloadAction<{ id: number }>) {},
+      reducer(state, action: PayloadAction<{ id: number }>) {
+      },
       prepare: (id) => ({
-        payload: { id },
-      }),
+        payload: { id }
+      })
     },
     addComment: {
-      reducer(state, action: PayloadAction<Comment>) {},
+      reducer(state, action: PayloadAction<Comment>) {
+      },
       prepare: (commentInfo) => ({
-        payload: commentInfo,
-      }),
+        payload: commentInfo
+      })
     },
-    putImages(state, action: PayloadAction<Array<ImageDetails>>) {
+    putImages(state, action: PayloadAction<Array<Image>>) {
       state.images = action.payload;
     },
     putImageDetails(state, action) {
@@ -61,14 +63,14 @@ export const imagesSlice = createSlice({
         ...state,
         imageDetails: {
           ...state.imageDetails,
-          comments: [...state.imageDetails.comments, action.payload],
-        },
+          comments: [...state.imageDetails.comments, action.payload]
+        }
       };
     },
     setLoading(state, action) {
       state.loading = action.payload;
-    },
-  },
+    }
+  }
 });
 
 export const fetchImages = createAction<undefined>('images/fetch');
@@ -87,7 +89,7 @@ export function* watcherAddComment() {
 }
 
 // workers
-function* workerFetchImages() {
+export function* workerFetchImages() {
   try {
     const images = yield call(() => http<Array<Image>>('/images'));
     yield put(putImages(images));
@@ -96,7 +98,7 @@ function* workerFetchImages() {
   }
 }
 
-function* workerImageDetails(action: PayloadAction<{ id: number }>) {
+export function* workerImageDetails(action: PayloadAction<{ id: number }>) {
   try {
     yield put(setLoading(true));
     const id = action.payload.id;
@@ -109,11 +111,12 @@ function* workerImageDetails(action: PayloadAction<{ id: number }>) {
   }
 }
 
-function* workerPutComment(action: PayloadAction<Comment>) {
+export function* workerPutComment(action: PayloadAction<Comment>) {
   try {
+    yield put(setLoading(true));
     yield put(putComment(action.payload));
-  } catch (error) {
-    console.log(error);
+  } finally {
+    yield put(setLoading(false));
   }
 }
 
@@ -123,6 +126,6 @@ export const {
   putImages,
   putImageDetails,
   putComment,
-  setLoading,
+  setLoading
 } = imagesSlice.actions;
 export default imagesSlice.reducer;

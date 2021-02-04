@@ -1,7 +1,7 @@
-export { default as Footer } from './particials/Footer';
-export { default as Header } from './particials/Header';
-export { default as CloseIcon } from './CloseIcon';
-export { default as CommentForm } from './CommentForm';
-export { default as CommentsList } from './CommentsList';
-export { default as ImageCard } from './ImageCard';
-export { default as ImageModal } from './ImageModal';
+export { default as Footer } from './particials/footer/Footer';
+export { default as Header } from './particials/header/Header';
+export { default as CloseIcon } from './closeIcon/CloseIcon';
+export { default as CommentForm } from './commentForm/CommentForm';
+export { default as CommentsList } from './commentsList/CommentsList';
+export { default as ImageCard } from './imageCard/ImageCard';
+export { default as ImageModal } from './imageModal/ImageModal';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ImageCardImg } from '../styled/components/ImageCard';
+import { ImageCardImg } from '../../styled/components/ImageCard';
 
 interface Props {
   url?: string
