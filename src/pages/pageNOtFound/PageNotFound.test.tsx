@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 describe('PageNotFound component', () => {
-  it('SNAPSHOT', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 });

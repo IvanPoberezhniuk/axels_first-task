@@ -13,7 +13,7 @@ beforeEach(() => {
 });
 
 describe('CommentsList component', () => {
-  it('SNAPSHOT', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 

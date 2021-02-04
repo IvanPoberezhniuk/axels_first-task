@@ -28,8 +28,8 @@ jest.mock('react-redux', () => ({
   useSelector: () => mockUseSelector
 }));
 
-describe('ImageModal Component Snapshot', () => {
-  it('SNAPSHOT', () => {
+describe('ImageModal Component', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 });

@@ -10,8 +10,8 @@ beforeEach(() => {
   component = setUp();
 });
 
-describe('APP COMPONENT', () => {
-  it('SNAPSHOT', () => {
+describe('App component', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 });

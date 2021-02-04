@@ -10,7 +10,7 @@ beforeEach(() => {
 });
 
 describe('Footer component', () => {
-  it('SNAPSHOT', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 });

@@ -38,7 +38,7 @@ describe('actions: ', () => {
   });
 
   describe('putImageDetails()', () => {
-    it('putImageDetails() should return object with images details and type props', () => {
+    it('should return object with images details and type props', () => {
       expect(putImageDetails(mockedImagesDetails)).toStrictEqual({
         type: 'images/putImageDetails',
         payload: mockedImagesDetails

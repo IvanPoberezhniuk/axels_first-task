@@ -29,12 +29,12 @@ jest.mock('react-router-dom', () => ({
   useLocation: () => mockUseLocation
 }));
 
-describe('GalleryPage Component Snapshot', () => {
-  it('SNAPSHOT', () => {
+describe('GalleryPage Component', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 
-  it('render all images from list', () => {
+  it('should render all images from list', () => {
     expect(component.find(Link).children()).toHaveLength(2);
   });
 });

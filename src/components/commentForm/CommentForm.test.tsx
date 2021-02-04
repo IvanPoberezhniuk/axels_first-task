@@ -6,7 +6,7 @@ import { CommentForm } from '../index';
 
 let component: ShallowWrapper;
 const mockUseDispatch = jest.fn();
-const setUp = () => shallow(<CommentForm/>);
+const setUp = () => shallow(<CommentForm />);
 
 jest.mock('react-redux', () => ({
   ...jest.requireActual<object>('react-redux'),
@@ -24,7 +24,7 @@ afterEach(() => {
 });
 
 describe('CommentForm component', () => {
-  it('SNAPSHOT', () => {
+  it('should take snapshot', () => {
     expect(component).toMatchSnapshot();
   });
 

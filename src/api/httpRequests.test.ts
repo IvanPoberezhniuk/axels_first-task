@@ -4,7 +4,7 @@ afterEach(() => {
   jest.restoreAllMocks();
 });
 
-describe('http()', () => {
+describe('http() method', () => {
   const spied = jest.spyOn(global, 'fetch').mockImplementation(jest.fn());
 
   it('should be called once', () => {
